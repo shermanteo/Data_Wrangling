@@ -1,8 +1,10 @@
 # Advanced Wrangling With Pandas
-## Resource Information: https://www.tomasbeuzen.com/python-programming-for-data-science/practice-exercises/chapter9-wrangling-advanced-practice.html
-## This practice contains a list of questions which are being answered right below.
+
+
+## This practice contains a dataset with a list of instructions on how the data should be presented and questions pertaining to the dataset.
 ## The answers have to be generated for the requestor from the dataframe and display the data efficiently and effectively
 
+## Resource Information: https://www.tomasbeuzen.com/python-programming-for-data-science/practice-exercises/chapter9-wrangling-advanced-practice.html
 
 import pandas as pd
 
@@ -20,7 +22,8 @@ print('Original Dataset')
 print(df.head())
 
 
-# Convert all the time unit to hours for standardisation
+
+## Convert all the time unit to hours for standardisation
 # Define a mapping of time units to their equivalent in hours
 units = {
     'seconds': 1/3600,
@@ -42,6 +45,8 @@ df['value_in_hours'] = df.apply(convert_to_hours, axis=1)
 print("\nDataFrame with value converted to hours:")
 print(df.head())
 
+
+
 ## How many passwords begin with sequence 123
 # Drop rows where the 'password' column has NaN values
 df = df.dropna(subset=['password'])
@@ -53,21 +58,40 @@ passwords_starting_with_123 = df[df['password'].str.startswith('123')]
 passwords_starting_with_123_count = len(passwords_starting_with_123)
 print ('\nNumber of passwords starting with 123:', passwords_starting_with_123_count)
 
+
+
 ## What is the average time in hours needed to crack these passwords that begin with 123? 
 # Calculate the average time in hours to crack passwords starting with '123'
 average_time_123 = passwords_starting_with_123['value_in_hours'].mean()
 print('\nAverage time in hours to crack passwords starting with 123:', average_time_123, 'hours')
+
+
 
 ## How does this compare to the average of all passwords in the dataset?
 # Calculate the average time in hours to crack all passwords
 average_time_all = df['value_in_hours'].mean()
 print('\nAverage time in hours to crack all passwords:', average_time_all, 'hours')
 
+
+
 ## How many passwords do not contain a number?
+# Filter passwords that do not contain any numbers using a regular expression
+passwords_without_numbers = df[~df['password'].str.contains(r'\d', regex=True)]
+
+# Count the number of such passwords
+count_without_numbers = len(passwords_without_numbers)
+print('\nThe number of passwords without numbers is:', count_without_numbers)
 
 
 
 ## How many passwords contain at least one number?
+# Filter passwords that contain any numbers using a regular expression
+passwords_with_numbers = df[df['password'].str.contains(r'\d', regex=True)]
+
+# Count the number of such passwords
+count_with_numbers = len(passwords_with_numbers)
+print('\nThe number of passwords with at least one number is:', count_with_numbers)
+
 
 
 ## Is there an obvious difference in online cracking time between passwords that don’t contain a number vs passwords that contain at least one number?
