@@ -1,4 +1,8 @@
 # Advanced Wrangling With Pandas
+## Resource Information: https://www.tomasbeuzen.com/python-programming-for-data-science/practice-exercises/chapter9-wrangling-advanced-practice.html
+## This practice contains a list of questions which are being answered right below.
+## The answers have to be generated for the requestor from the dataframe and display the data efficiently and effectively
+
 
 import pandas as pd
 
