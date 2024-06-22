@@ -9,17 +9,24 @@ Data wrangling, also referred to as data munging, is the comprehensive process o
 Data wrangling is a critical step in the data analysis workflow for several reasons:
 
 Improves Data Quality: By cleaning and transforming data, wrangling ensures that the data is accurate, complete, and reliable. This prevents issues that could arise from using flawed data for analysis.
+
 Enhances Data Usability: Structured and well-prepared data is easier to analyze, visualize, and interpret, making it more useful for decision-making.
+
 Reduces Time and Effort: Proper data wrangling reduces the time and effort needed for subsequent data analysis tasks, as clean data is much easier to work with.
+
 Enables Accurate Analysis: Reliable data leads to more accurate and meaningful analysis, which is essential for making informed business decisions and deriving insights.
 ## Applications of Data Wrangling
 
 Data wrangling is applicable in various domains and scenarios, including:
 
 Business Intelligence: Cleaning and structuring data to generate accurate business reports, dashboards, and key performance indicators (KPIs).
+
 Machine Learning: Preparing data for training and testing machine learning models, including feature engineering and normalization.
+
 Data Analysis: Transforming raw data for exploratory data analysis (EDA), statistical analysis, and hypothesis testing.
+
 Data Integration: Merging data from different sources and formats into a cohesive and unified dataset.
+
 Data Visualization: Organizing data in a way that facilitates the creation of clear and insightful visualizations.
 ## Summary
 
