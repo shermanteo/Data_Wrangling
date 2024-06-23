@@ -6,6 +6,8 @@
 
 ## Resource Information: https://www.tomasbeuzen.com/python-programming-for-data-science/practice-exercises/chapter9-wrangling-advanced-practice.html
 
+# Advanced Wrangling With Pandas
+
 import pandas as pd
 
 # URL of the dataset
@@ -95,12 +97,33 @@ print('\nThe number of passwords with at least one number is:', count_with_numbe
 
 
 ## Is there an obvious difference in online cracking time between passwords that don’t contain a number vs passwords that contain at least one number?
+# Calculate the average time in hours to crack passwords without numbers
+average_time_without_numbers = passwords_without_numbers['value_in_hours'].mean()
+print('\nAverage time in hours to crack passwords without numbers: ', average_time_without_numbers, 'hours')
+# Calculate the average time in hours to crack passwords with numbers
+average_time_with_numbers = passwords_with_numbers['value_in_hours'].mean()
+print('\nAverage time in hours to crack passwords with numbers: ', average_time_with_numbers, 'hours')
+
 
 
 ## How many passwords contain at least one of the following punctuations: [.!?\\-] (hint: remember this dataset contains weak passwords…)?
+# Filter passwords that contain any of the specified punctuations using a regular expression
+punctuation_pattern = r'[.!?\\-]'
+passwords_with_punctuations = df[df['password'].str.contains(punctuation_pattern, regex=True)]
+# Count the number of such passwords
+count_with_punctuations = len(passwords_with_punctuations)
+print('\nNumber of passwords that contain at least one of the following punctuations [.!?\\-]: ', count_with_punctuations, 'passwords')
+
 
 
 ## Which password(s) in the datasets took the shortest time to crack by online guessing? Which took the longest?
-
+# Find the row(s) with the shortest cracking time
+shortest_time_row = df[df['value_in_hours'] == df['value_in_hours'].min()]
+print("\nPassword(s) with the shortest time to crack:")
+print(shortest_time_row[['password', 'value', 'time_unit', 'value_in_hours']])
+# Find the row(s) with the longest cracking time
+longest_time_row = df[df['value_in_hours'] == df['value_in_hours'].max()]
+print("\nPassword(s) with the longest time to crack:")
+print(longest_time_row[['password', 'value', 'time_unit', 'value_in_hours']])
 
 
